@@ -103,8 +103,17 @@ public class LearningMainApplication {
 	 */
 	public static void sample03() {
 		System.out.println("-----[sample03]-----");
-		VendingMachine vm = new VendingMachine(2000);
-		System.out.println(vm.getMoney() + "円");
+
+		List<VendingMachine> machines = new ArrayList<>();
+		machines.add(new VendingMachine(2000));
+		machines.add(new VendingMachine(2000));
+
+		int totalMoney = 0;
+		for (VendingMachine machine : machines) {
+			System.out.println(machine.getMoney() + "円が追加されました");
+			totalMoney += machine.getMoney();
+		}
+		System.out.println("合計は" + totalMoney + "円です");
 	}
 
 	/**
@@ -158,6 +167,8 @@ public class LearningMainApplication {
 	 */
 	public static void sample05() {
 		System.out.println("-----[sample05]-----");
-		// TODO
+		VendingMachine mn1 = new VendingMachine(0);
+		mn1.addMoneyFromInput();
+		System.out.println("現在の合計は" + mn1.getMoney() + "円です");
 	}
 }
