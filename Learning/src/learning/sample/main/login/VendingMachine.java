@@ -70,4 +70,21 @@ public class VendingMachine {
 	public int countJuiceByFlavor(String flavor) {
 		return juiceQuantity.getOrDefault(flavor, 0);
 	}
+
+	// 自動販売機に入金するメソッド
+	public void addMoney(int amount) {
+		money += amount;
+	}
+
+	public void addMoneyFromInput() {
+		Scanner scanner = new Scanner(System.in);
+
+		System.out.print("追加する金額を入力してください: ");
+
+		int addedAmount = scanner.nextInt();
+
+		addMoney(addedAmount);
+		System.out.println(getMoney() + "円が追加されました");
+	}
+
 }
